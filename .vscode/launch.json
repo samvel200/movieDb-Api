@@ -1,0 +1,36 @@
+{
+
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "moviedb",
+            "request": "launch",
+            "type": "dart",
+            "env": {
+                "MESA_LOG_LEVEL": "none"
+            }
+           
+        },
+        {
+            "name": "moviedb (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "env": {
+                "MESA_LOG_LEVEL": "none"
+            }
+            
+        },
+        {
+            "name": "moviedb (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "env": {
+                "MESA_LOG_LEVEL": "none"
+            }
+            
+        }
+    ]
+}
