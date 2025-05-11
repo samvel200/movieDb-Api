@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moviedb/domain/data_provibers/session_data_provider.dart';
 import 'package:moviedb/ui/widgets/movie_list/movie_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
@@ -22,13 +23,17 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 100),
+        title: Center(
           child: Text(
             'TMDB',
             style: TextStyle(color: Colors.white),
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () => SessionDataProvider().setSessionId(null),
+              icon: Icon(Icons.logout))
+        ],
       ),
       body: IndexedStack(index: _selectedTab, children: [
         Text('Hовости'),

@@ -5,9 +5,9 @@ import 'package:moviedb/ui/widgets/main_screen/main_screen_widget.dart';
 import 'package:moviedb/ui/widgets/movie_detalis/movie_detalis_widget.dart';
 
 abstract class MainNavigationRouteNames {
-  static const auth = '/auth';
-  static const mainScreen = '/main_screen';
-  static const moviedetalis = '/main_screen/movie_detalis';
+  static const auth = 'auth';
+  static const mainScreen = '/';
+  static const moviedetalis = '/movie_detalis';
 }
 
 class MainNavigation {
@@ -15,11 +15,11 @@ class MainNavigation {
       ? MainNavigationRouteNames.mainScreen
       : MainNavigationRouteNames.auth;
   final routes = <String, Widget Function(BuildContext)>{
-    '/auth': (context) => AuthProvider(
+    MainNavigationRouteNames.auth: (context) => AuthProvider(
           model: AuthModel(),
           child: AuthWidget(),
         ),
-    '/main_screen': (context) => MainScreenWidget(),
+    MainNavigationRouteNames.mainScreen: (context) => MainScreenWidget(),
   };
   Route<Object> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {

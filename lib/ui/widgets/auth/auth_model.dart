@@ -52,8 +52,8 @@ class AuthModel extends ChangeNotifier {
     }
     await _sessionDataprivier.setSessionId(sessionId);
 
-    unawaited(
-        Navigator.of(context).pushNamed(MainNavigationRouteNames.mainScreen));
+    unawaited(Navigator.of(context)
+        .pushReplacementNamed(MainNavigationRouteNames.mainScreen));
   }
 }
 
