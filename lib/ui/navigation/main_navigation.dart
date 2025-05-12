@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:moviedb/Library/Widgets/Inherited/provider.dart';
 import 'package:moviedb/ui/widgets/auth/auth_model.dart';
 import 'package:moviedb/ui/widgets/auth/auth_widget.dart';
+import 'package:moviedb/ui/widgets/main_screen/main_screen_model.dart';
 import 'package:moviedb/ui/widgets/main_screen/main_screen_widget.dart';
 import 'package:moviedb/ui/widgets/movie_detalis/movie_detalis_widget.dart';
 
@@ -15,11 +17,14 @@ class MainNavigation {
       ? MainNavigationRouteNames.mainScreen
       : MainNavigationRouteNames.auth;
   final routes = <String, Widget Function(BuildContext)>{
-    MainNavigationRouteNames.auth: (context) => AuthProvider(
+    MainNavigationRouteNames.auth: (context) => NotifierProvider(
           model: AuthModel(),
           child: AuthWidget(),
         ),
-    MainNavigationRouteNames.mainScreen: (context) => MainScreenWidget(),
+    MainNavigationRouteNames.mainScreen: (context) => NotifierProvider(
+          model: MainScreenModel(),
+          child: MainScreenWidget(),
+        ),
   };
   Route<Object> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
